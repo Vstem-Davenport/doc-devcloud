@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Sample Application &mdash; Cloud Development 1.0 documentation</title>
+    <title>Using Heroku &mdash; Cloud Development 1.0 documentation</title>
     
     <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -26,7 +26,7 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="Cloud Development 1.0 documentation" href="index.html" />
-    <link rel="prev" title="Using Heroku" href="08_use-heroku.html" /> 
+    <link rel="prev" title="Sample Documentation" href="08_use-documents.html" /> 
   </head>
   <body>
     <div class="related">
@@ -36,19 +36,27 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="08_use-heroku.html" title="Using Heroku"
+          <a href="08_use-documents.html" title="Sample Documentation"
              accesskey="P">previous</a> |</li>
         <li><a href="index.html">Cloud Development 1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Using Heroku</a><ul>
+<li><a class="reference internal" href="#add-heroku-server-to-project">Add Heroku Server to Project</a></li>
+</ul>
+</li>
+</ul>
+
   <h4>Previous topic</h4>
-  <p class="topless"><a href="08_use-heroku.html"
-                        title="previous chapter">Using Heroku</a></p>
+  <p class="topless"><a href="08_use-documents.html"
+                        title="previous chapter">Sample Documentation</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
-    <li><a href="_sources/09_samples.txt"
+    <li><a href="_sources/09_use-heroku.txt"
            rel="nofollow">Show Source</a></li>
   </ul>
 <div id="searchbox" style="display: none">
@@ -72,8 +80,34 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="sample-application">
-<h1>Sample Application<a class="headerlink" href="#sample-application" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="using-heroku">
+<span id="use-heroku"></span><h1>Using Heroku<a class="headerlink" href="#using-heroku" title="Permalink to this headline">¶</a></h1>
+<p>Heroku provides a free web application deployment services, integrated with
+the Cloud9 development environment through Git and GitHub. Following is a
+brief outline for configuring and deploying a project on Heroku.</p>
+<div class="section" id="add-heroku-server-to-project">
+<h2>Add Heroku Server to Project<a class="headerlink" href="#add-heroku-server-to-project" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Open a project in Cloud9</p>
+</li>
+<li><p class="first">In the Cloud9 Project, choose <em class="menuselection">View ‣ Console</em> from the menu</p>
+</li>
+<li><p class="first">At the console command line, type:</p>
+<div class="highlight-python"><pre>git remote add heroku git@heroku.com:__heroku-server__.git</pre>
+</div>
+<p>where <tt class="docutils literal"><span class="pre">__heroku-server__</span></tt> is replaced with your heroku server name</p>
+</li>
+<li><p class="first">To see the new git heroku deployment branch, type:</p>
+<div class="highlight-python"><pre>git remote -v</pre>
+</div>
+</li>
+<li><p class="first">After making changes to the project in Cloud9 and pushing to the GitHub
+repository, deploy changes on Heroku with the additional command:</p>
+<div class="highlight-python"><pre>git push heroku master</pre>
+</div>
+</li>
+</ul>
+</div>
 </div>
 
 
@@ -89,7 +123,7 @@
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="08_use-heroku.html" title="Using Heroku"
+          <a href="08_use-documents.html" title="Sample Documentation"
              >previous</a> |</li>
         <li><a href="index.html">Cloud Development 1.0 documentation</a> &raquo;</li> 
       </ul>

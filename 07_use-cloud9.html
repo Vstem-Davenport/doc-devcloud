@@ -26,7 +26,7 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="Cloud Development 1.0 documentation" href="index.html" />
-    <link rel="next" title="Using Heroku" href="08_use-heroku.html" />
+    <link rel="next" title="Sample Documentation" href="08_use-documents.html" />
     <link rel="prev" title="Using GitHub" href="06_use-github.html" /> 
   </head>
   <body>
@@ -37,7 +37,7 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="08_use-heroku.html" title="Using Heroku"
+          <a href="08_use-documents.html" title="Sample Documentation"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="06_use-github.html" title="Using GitHub"
@@ -66,6 +66,7 @@
 <li><a class="reference internal" href="#push-local-content">Push local content</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#upstream-repositories">Upstream Repositories</a></li>
 </ul>
 </li>
 </ul>
@@ -74,8 +75,8 @@
   <p class="topless"><a href="06_use-github.html"
                         title="previous chapter">Using GitHub</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="08_use-heroku.html"
-                        title="next chapter">Using Heroku</a></p>
+  <p class="topless"><a href="08_use-documents.html"
+                        title="next chapter">Sample Documentation</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="_sources/07_use-cloud9.txt"
@@ -104,6 +105,13 @@
             
   <div class="section" id="using-cloud9">
 <span id="use-cloud9"></span><h1>Using Cloud9<a class="headerlink" href="#using-cloud9" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The Cloud9 editor has a simple command line space at the bottom, as
+well as a complete Linux console terminal. When using cut-and-paste to
+execute commands, paste into the editor command line, as the terminal window
+does not support pasting.</p>
+</div>
 <p>Cloud9 is a virtual Linux development environment for projects. Project code
 is hosted on a remote repository at either GitHub or BitBucket, and a working
 copy of a project repository will be cloned into the Cloud9 development space.</p>
@@ -200,11 +208,23 @@ locally, then push the content commits to the remote master:</p>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">If git requires a user password in the <strong class="command">git push</strong> command, then an
-ssh key is missing at GitHub. Follow GitHub directions to add the missing
-key.</p>
+<p class="last">If git requires a user password in the <strong class="command">git push</strong> command,
+then an ssh key is missing at GitHub. Follow GitHub directions to add the
+missing key.</p>
 </div>
 </div>
+</div>
+<div class="section" id="upstream-repositories">
+<h2>Upstream Repositories<a class="headerlink" href="#upstream-repositories" title="Permalink to this headline">¶</a></h2>
+<p>When a repository is a fork of a master, changes to the master can be updated
+to the fork as follows. First, an <tt class="docutils literal"><span class="pre">upstream</span></tt> remote must be added:</p>
+<div class="highlight-python"><pre>git remote add upstream __remotename__</pre>
+</div>
+<p>Then synchronize the local repository with the commands:</p>
+<div class="highlight-python"><pre>git commit -a "commit current changes"
+git pull upstream master</pre>
+</div>
+<p>Finally, refresh the file tree view in cloud9 to show new or changed files.</p>
 </div>
 </div>
 
@@ -221,7 +241,7 @@ key.</p>
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="08_use-heroku.html" title="Using Heroku"
+          <a href="08_use-documents.html" title="Sample Documentation"
              >next</a> |</li>
         <li class="right" >
           <a href="06_use-github.html" title="Using GitHub"
