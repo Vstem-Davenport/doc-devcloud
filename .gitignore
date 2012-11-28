@@ -21,8 +21,6 @@
 # static folder content
 # *static/*
 */*static/*
-# *include/*
-*/*include/*
 
 # cloud9 revision tracking
 .c9revisions/*
