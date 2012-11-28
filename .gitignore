@@ -24,6 +24,9 @@
 # *include/*
 */*include/*
 
+# cloud9 revision tracking
+.c9revisions/*
+
 # keep directories which include .gitkeep
 !.git_keep
 !.gitkeep

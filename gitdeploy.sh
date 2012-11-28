@@ -5,7 +5,7 @@ SECTIONS=""
 DOWNLOADS_DIR="_downloads"
 DEPLOY_DIR="_deploy"
 INCLUDE_DIR="_include"
-DEPLOY_GIT="git@github.com:garlovel/doc-devcloud.git"
+DEPLOY_GIT="git@github.com:Vstem-Davenport/doc-devcloud.git"
 DEPLOY_BRANCH="gh-pages"
 MAKE_METHOD="html"
 
@@ -77,12 +77,12 @@ then
   cp -R $DOWNLOADS_DIR $DEPLOY_DIR
 fi
 
-# Add static content (remove CNAME if not garlovel)
+# Add static content (remove CNAME if not Vstem-Davenport)
 
 if [[ -d $INCLUDE_DIR ]]
 then
   cp -R $INCLUDE_DIR/* $DEPLOY_DIR
-  if [[ "$DEPLOY_GIT" == "${DEPLOY_GIT/garlovel/}" ]]
+  if [[ "$DEPLOY_GIT" == "${DEPLOY_GIT/Vstem-Davenport/}" ]]
   then
     rm $DEPLOY_DIR/CNAME
   fi
