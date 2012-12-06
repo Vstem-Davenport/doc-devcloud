@@ -52,10 +52,9 @@
 <li><a class="reference internal" href="#assignment">Assignment</a></li>
 <li><a class="reference internal" href="#data-types">Data Types</a></li>
 <li><a class="reference internal" href="#arithmetic">Arithmetic</a></li>
-<li><a class="reference internal" href="#arithmetic-assignment">Arithmetic + Assignment</a></li>
+<li><a class="reference internal" href="#assignment-operators">Assignment Operators</a></li>
 <li><a class="reference internal" href="#string-concatenation">String Concatenation</a></li>
-<li><a class="reference internal" href="#comparison">Comparison</a><ul>
-<li><a class="reference internal" href="#and-and-or">And and Or</a></li>
+<li><a class="reference internal" href="#comparison-operators">Comparison Operators</a><ul>
 <li><a class="reference internal" href="#is-equal-to">Is equal to</a></li>
 </ul>
 </li>
@@ -293,25 +292,27 @@ from its value.</p>
 </pre></div>
 </div>
 <p>Result: <tt class="docutils literal"><span class="pre">1</span></tt></p>
-<p>Enter the statements:</p>
+<p>Enter the statement:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">0</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span>
 </pre></div>
 </div>
 <p class="last">Result: <tt class="docutils literal"><span class="pre">2</span></tt></p>
 </div>
-<p>In Ruby, you can do all of the normal mathematical arithmetic on integer and
+<p>Ruby does all of the normal arithmetic operations on integer and
 decimal/float variables.</p>
 <table border="1" class="docutils">
 <colgroup>
+<col width="40%" />
+<col width="22%" />
 <col width="38%" />
-<col width="32%" />
-<col width="30%" />
 </colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td>Operation</td>
-<td>Operand</td>
-<td>Sample Syntax</td>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Operation</th>
+<th class="head">Operand</th>
+<th class="head">Sample Syntax</th>
 </tr>
+</thead>
+<tbody valign="top">
 <tr class="row-even"><td>Addition</td>
 <td><tt class="docutils literal"><span class="pre">+</span></tt></td>
 <td><tt class="docutils literal"><span class="pre">x</span> <span class="pre">+</span> <span class="pre">2</span></tt></td>
@@ -328,35 +329,54 @@ decimal/float variables.</p>
 <td><tt class="docutils literal"><span class="pre">/</span></tt></td>
 <td><tt class="docutils literal"><span class="pre">x</span> <span class="pre">/</span> <span class="pre">2</span></tt></td>
 </tr>
-<tr class="row-even"><td>Modulus</td>
+<tr class="row-even"><td>Exponentiation</td>
+<td><tt class="docutils literal"><span class="pre">**</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">x</span> <span class="pre">**</span> <span class="pre">2</span></tt></td>
+</tr>
+<tr class="row-odd"><td>Modulus</td>
 <td><tt class="docutils literal"><span class="pre">%</span></tt></td>
 <td><tt class="docutils literal"><span class="pre">x</span> <span class="pre">%</span> <span class="pre">2</span></tt></td>
 </tr>
 </tbody>
 </table>
-<p>The order of operations is the same as in regular math. Parentheses are used to
-group operations, and have the highest order of precedence, just as in regular
-math.</p>
+<p>The order of operations is the same as in regular math. Parentheses, which
+group operations, have the highest order of precedence.</p>
 </div>
-<div class="section" id="arithmetic-assignment">
-<h3>Arithmetic + Assignment<a class="headerlink" href="#arithmetic-assignment" title="Permalink to this headline">¶</a></h3>
-<p>Arithmetic and assignment may be combined with a single operator which performs
+<div class="section" id="assignment-operators">
+<h3>Assignment Operators<a class="headerlink" href="#assignment-operators" title="Permalink to this headline">¶</a></h3>
+<div class="sidebar">
+<p class="first sidebar-title">Arithmetic assignment</p>
+<p>Enter the statements:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">x</span> <span class="o">-=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p>Result: <tt class="docutils literal"><span class="pre">1</span></tt></p>
+<p>Enter the statement:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">x</span> <span class="o">*=</span> <span class="mi">2</span>
+</pre></div>
+</div>
+<p class="last">Result: <tt class="docutils literal"><span class="pre">2</span></tt></p>
+</div>
+<p>Assignment may be combined with a single arithmetic operator which performs
 the given arithmetic operation on the variable, and assigns the result of that
 operation to the new value of the variable, replacing the old value.</p>
 <p>For example:</p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="20%" />
-<col width="20%" />
-<col width="43%" />
-<col width="17%" />
+<col width="22%" />
+<col width="24%" />
+<col width="31%" />
+<col width="22%" />
 </colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td>Operand</td>
-<td>Initial x</td>
-<td>Sample Use</td>
-<td>Result x</td>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Operand</th>
+<th class="head">Initial x</th>
+<th class="head">Sample Use</th>
+<th class="head">Result x</th>
 </tr>
+</thead>
+<tbody valign="top">
 <tr class="row-even"><td><tt class="docutils literal"><span class="pre">+=</span></tt></td>
 <td>1</td>
 <td><tt class="docutils literal"><span class="pre">x</span> <span class="pre">+=</span> <span class="pre">2</span></tt></td>
@@ -390,33 +410,38 @@ operation to the new value of the variable, replacing the old value.</p>
 <h3>String Concatenation<a class="headerlink" href="#string-concatenation" title="Permalink to this headline">¶</a></h3>
 <div class="sidebar">
 <p class="first sidebar-title">String concatenation</p>
-<p>In IRB, create a string variable called &#8220;formatted_x&#8221;
-that uses the value of the integer variable &#8220;x&#8221; in it:</p>
+<p>In IRB, create a string variable called &#8220;formatted_x&#8221; that uses the value of
+the integer variable &#8220;x&#8221; in it:</p>
 <div class="last highlight-python"><div class="highlight"><pre><span class="n">formatted_x</span> <span class="o">=</span> <span class="s">&quot;$&quot;</span> <span class="o">+</span> <span class="n">x</span> <span class="o">+</span> <span class="s">&quot;.00&quot;</span>
 </pre></div>
 </div>
 </div>
-<p>In addition to arithmetic, the <tt class="docutils literal"><span class="pre">+</span></tt> operator can also be used for string
-concatenation.</p>
-<p>Note that the string portions to be concatenated are surrounded by quotes, and
+<p>Note that the string literals to be concatenated are surrounded by quotes, and
 anything not surrounded by quotes represents a variable or method&#8217;s <em>value</em>.</p>
-<p>Also note that if you change the value of x, this <em>will not</em> update the value
-of formatted_x, since the <em>value</em> of x was inserted into formatted_x, not the
-variable itself. If you wanted to auto-update formatted_x every time that x is
-changed, you would have to use a method... read on to find out how.</p>
+<p>Changing the value of x <em>will not</em> update the value of formatted_x, which is a
+separate variable. A <strong class="command">method</strong> is required to auto-update formatted_x
+every time that x is changed. Read on to find out how later.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The <tt class="docutils literal"><span class="pre">+</span></tt> operator is overloaded in Ruby to provide two operations:
+addition of numbers, and concatenation with strings.</p>
+</div>
 </div>
 <hr class="docutils" />
-<div class="section" id="comparison">
-<h3>Comparison<a class="headerlink" href="#comparison" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="comparison-operators">
+<h3>Comparison Operators<a class="headerlink" href="#comparison-operators" title="Permalink to this headline">¶</a></h3>
 <div class="sidebar">
-<p class="first sidebar-title">Comparisons with <tt class="docutils literal"><span class="pre">And</span></tt> and <tt class="docutils literal"><span class="pre">Or</span></tt></p>
-<p>Create some variables which describe a fast food order:</p>
-<div class="highlight-python"><pre>sandwich = "cheeseburger"
-condiments = ["pickles", "mustard", "ketchup"]
-combo = true
-size = "medium"
-drink_upsize = true
-order = {
+<p class="first sidebar-title">Sample comparisons</p>
+<p>Create some variables describing a fast food order:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">sandwich</span> <span class="o">=</span> <span class="s">&quot;cheeseburger&quot;</span>
+<span class="n">condiments</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;pickles&quot;</span><span class="p">,</span> <span class="s">&quot;mustard&quot;</span><span class="p">,</span> <span class="s">&quot;ketchup&quot;</span><span class="p">]</span>
+<span class="n">combo</span> <span class="o">=</span> <span class="n">true</span>
+<span class="n">size</span> <span class="o">=</span> <span class="s">&quot;medium&quot;</span>
+<span class="n">drink_upsize</span> <span class="o">=</span> <span class="n">true</span>
+</pre></div>
+</div>
+<p>Now place an order:</p>
+<div class="highlight-python"><pre>order = {
   :sandwich =&gt; sandwich,
   :condiments =&gt; condiments,
   :combo =&gt; combo,
@@ -424,57 +449,67 @@ order = {
   :drink_upsize =&gt; drink_upsize
 }</pre>
 </div>
-<p>Check whether this order is a combo with an upsized drink:</p>
+<p>Does this order include a combo and an upsized drink?:</p>
 <div class="highlight-python"><pre>combo &amp;&amp; drink_upsize</pre>
 </div>
-<p>This returns true, but if you set one of those variables equal to false, it
-does not:</p>
+<p>Now change the variable values, then compare with <strong>and</strong>:</p>
 <div class="highlight-python"><pre>drink_upsize = false
 combo &amp;&amp; drink_upsize</pre>
 </div>
-<p>Using <tt class="docutils literal"><span class="pre">Or</span></tt> with the same variables, however, returns true:</p>
-<div class="last highlight-python"><pre>combo || drink_upsize</pre>
+<p>Now compare using <strong>or</strong>:</p>
+<div class="highlight-python"><pre>combo || drink_upsize</pre>
 </div>
+<p class="last">Results: <tt class="docutils literal"><span class="pre">true</span></tt>, <tt class="docutils literal"><span class="pre">false</span></tt>, <tt class="docutils literal"><span class="pre">true</span></tt></p>
 </div>
-<p>You may sometimes want to compare the value of a variable to something else.
-In Ruby, you can do this using the <tt class="docutils literal"><span class="pre">and</span></tt>, <tt class="docutils literal"><span class="pre">or</span></tt>, and <tt class="docutils literal"><span class="pre">is</span> <span class="pre">equal</span> <span class="pre">to</span></tt>
-operators:</p>
+<p>Comparison operators compare two values, and return a boolean result of <tt class="docutils literal"><span class="pre">true</span></tt>
+or <tt class="docutils literal"><span class="pre">false</span></tt>. Ruby syntax for standard comparisons are listed following:</p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="25%" />
-<col width="28%" />
-<col width="47%" />
+<col width="42%" />
+<col width="22%" />
+<col width="36%" />
 </colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Operation</th>
+<th class="head">Operand</th>
+<th class="head">Sample Syntax</th>
+</tr>
+</thead>
 <tbody valign="top">
-<tr class="row-odd"><td>Operation</td>
-<td>Operand</td>
-<td>Sample Syntax</td>
-</tr>
-<tr class="row-even"><td>And</td>
-<td><tt class="docutils literal"><span class="pre">&amp;&amp;</span></tt></td>
-<td><tt class="docutils literal"><span class="pre">x</span> <span class="pre">&amp;&amp;</span> <span class="pre">y</span></tt></td>
-</tr>
-<tr class="row-odd"><td>Or</td>
-<td><tt class="docutils literal"><span class="pre">||</span></tt></td>
-<td><tt class="docutils literal"><span class="pre">x</span> <span class="pre">||</span> <span class="pre">y</span></tt></td>
-</tr>
-<tr class="row-even"><td>Is Equal To</td>
+<tr class="row-even"><td>Equal To</td>
 <td><tt class="docutils literal"><span class="pre">==</span></tt></td>
 <td><tt class="docutils literal"><span class="pre">x</span> <span class="pre">==</span> <span class="pre">y</span></tt></td>
 </tr>
+<tr class="row-odd"><td>Not equal To</td>
+<td><tt class="docutils literal"><span class="pre">!=</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">x</span> <span class="pre">!=</span> <span class="pre">y</span></tt></td>
+</tr>
+<tr class="row-even"><td>Greater than</td>
+<td><tt class="docutils literal"><span class="pre">&gt;</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">x</span> <span class="pre">&gt;</span> <span class="pre">y</span></tt></td>
+</tr>
+<tr class="row-odd"><td>Less than</td>
+<td><tt class="docutils literal"><span class="pre">&lt;</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">x</span> <span class="pre">&lt;</span> <span class="pre">y</span></tt></td>
+</tr>
+<tr class="row-even"><td>Equal or Greater</td>
+<td><tt class="docutils literal"><span class="pre">&gt;=</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">x</span> <span class="pre">&gt;=</span> <span class="pre">y</span></tt></td>
+</tr>
+<tr class="row-odd"><td>Equal or Lesser</td>
+<td><tt class="docutils literal"><span class="pre">&lt;=</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">x</span> <span class="pre">&lt;=</span> <span class="pre">y</span></tt></td>
+</tr>
+<tr class="row-even"><td>Boolean <tt class="docutils literal"><span class="pre">and</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">&amp;&amp;</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">x</span> <span class="pre">&amp;&amp;</span> <span class="pre">y</span></tt></td>
+</tr>
+<tr class="row-odd"><td>Boolean <tt class="docutils literal"><span class="pre">or</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">||</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">x</span> <span class="pre">||</span> <span class="pre">y</span></tt></td>
+</tr>
 </tbody>
 </table>
-<p>Each of these comparisons returns a boolean <tt class="docutils literal"><span class="pre">true</span></tt> or <tt class="docutils literal"><span class="pre">false</span></tt>.</p>
-<div class="line-block">
-<div class="line"><br /></div>
-</div>
-<div class="section" id="and-and-or">
-<h4>And and Or<a class="headerlink" href="#and-and-or" title="Permalink to this headline">¶</a></h4>
-<p>&#8220;And&#8221; and &#8220;Or&#8221; are used to compare two <em>boolean</em> values to each other.</p>
-<p>The &#8220;And&#8221; comparison checks whether <em>both</em> of the given values are true, and if
-not, it returns false.</p>
-<p>The &#8220;Or&#8221; comparison checks to see if <em>either one, or both</em>, of the given values
-is true, and if not, returns false.</p>
 <div class="line-block">
 <div class="line"><br /></div>
 <div class="line"><br /></div>
@@ -486,7 +521,15 @@ is true, and if not, returns false.</p>
 <div class="line"><br /></div>
 <div class="line"><br /></div>
 <div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
 </div>
+<div class="section" id="is-equal-to">
+<h4>Is equal to<a class="headerlink" href="#is-equal-to" title="Permalink to this headline">¶</a></h4>
 <div class="sidebar">
 <p class="first sidebar-title">Comparisons with <tt class="docutils literal"><span class="pre">Is</span> <span class="pre">equal</span> <span class="pre">to</span></tt></p>
 <p>Compare a boolean variable&#8217;s value to a boolean:</p>
@@ -506,11 +549,12 @@ is true, and if not, returns false.</p>
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="is-equal-to">
-<h4>Is equal to<a class="headerlink" href="#is-equal-to" title="Permalink to this headline">¶</a></h4>
 <p>The <tt class="docutils literal"><span class="pre">Is</span> <span class="pre">Equal</span> <span class="pre">To</span></tt> comparison can be used on two values of <em>any type</em> to
 determine if they equal each other.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Do not confuse <tt class="docutils literal"><span class="pre">==</span></tt> with <tt class="docutils literal"><span class="pre">=</span></tt>!</p>
+</div>
 <div class="line-block">
 <div class="line"><br /></div>
 <div class="line"><br /></div>
@@ -524,10 +568,48 @@ determine if they equal each other.</p>
 <div class="line"><br /></div>
 <div class="line"><br /></div>
 <div class="line"><br /></div>
+<div class="line"><br /></div>
 </div>
-<div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">Do not confuse <tt class="docutils literal"><span class="pre">==</span></tt> with <tt class="docutils literal"><span class="pre">=</span></tt>!</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>Ruby has additional comparison operators for particular programming
+uses:</p>
+<table border="1" class="last docutils">
+<colgroup>
+<col width="35%" />
+<col width="21%" />
+<col width="44%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Operation</th>
+<th class="head">Operand</th>
+<th class="head">Result</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Math comparison</td>
+<td><tt class="docutils literal"><span class="pre">&lt;=&gt;</span></tt></td>
+<td><div class="first last line-block">
+<div class="line"><tt class="docutils literal"><span class="pre">1</span></tt> if greater than</div>
+<div class="line"><tt class="docutils literal"><span class="pre">0</span></tt> if equal to</div>
+<div class="line"><tt class="docutils literal"><span class="pre">-1</span></tt> if less than</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td>threequal method</td>
+<td><tt class="docutils literal"><span class="pre">===</span></tt></td>
+<td>when clause equality</td>
+</tr>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">.eql?</span></tt> method</td>
+<td><tt class="docutils literal"><span class="pre">.eql?</span></tt></td>
+<td>equal type and values</td>
+</tr>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">equal?</span></tt> method</td>
+<td><tt class="docutils literal"><span class="pre">equal?</span></tt></td>
+<td>equal object ids</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
