@@ -162,7 +162,7 @@ from its value.
 Arithmetic
 -----------------------------
 
-.. sidebar :: Arithmetic operations
+.. sidebar:: Arithmetic operations
  
   Enter the statements::
 
@@ -171,93 +171,111 @@ Arithmetic
   
   Result: ``1``
 
-  Enter the statements::
+  Enter the statement::
 
     (x - 0) * 2
 
   Result: ``2``
 
-In Ruby, you can do all of the normal mathematical arithmetic on integer and 
+Ruby does all of the normal arithmetic operations on integer and 
 decimal/float variables.
 
-+-------------------+----------------+---------------+
-| Operation         | Operand        | Sample Syntax |
-+-------------------+----------------+---------------+
-| Addition          | ``+``          | ``x + 2``     |
-+-------------------+----------------+---------------+
-| Subtraction       | ``-``          | ``x - 2``     |
-+-------------------+----------------+---------------+
-| Multiplication    | ``*``          | ``x * 2``     |
-+-------------------+----------------+---------------+
-| Division          | ``/``          | ``x / 2``     |
-+-------------------+----------------+---------------+
-| Modulus           | ``%``          | ``x % 2``     |
-+-------------------+----------------+---------------+
++------------------+----------+-----------------+
+| Operation        | Operand  | Sample Syntax   |
++==================+==========+=================+
+| Addition         | ``+``    | ``x + 2``       |
++------------------+----------+-----------------+
+| Subtraction      | ``-``    | ``x - 2``       |
++------------------+----------+-----------------+
+| Multiplication   | ``*``    | ``x * 2``       |
++------------------+----------+-----------------+
+| Division         | ``/``    | ``x / 2``       |
++------------------+----------+-----------------+
+| Exponentiation   | ``**``   | ``x ** 2``      |
++------------------+----------+-----------------+
+| Modulus          | ``%``    | ``x % 2``       |
++------------------+----------+-----------------+
 
-The order of operations is the same as in regular math. Parentheses are used to 
-group operations, and have the highest order of precedence, just as in regular 
-math.
+The order of operations is the same as in regular math. Parentheses, which 
+group operations, have the highest order of precedence.
 
-Arithmetic + Assignment
+Assignment Operators
 -----------------------------
 
-Arithmetic and assignment may be combined with a single operator which performs 
+.. sidebar:: Arithmetic assignment
+
+   Enter the statements::
+
+     x = 2
+     x -= 1
+  
+   Result: ``1``
+
+   Enter the statement::
+
+     x *= 2
+
+   Result: ``2``
+
+Assignment may be combined with a single arithmetic operator which performs 
 the given arithmetic operation on the variable, and assigns the result of that 
 operation to the new value of the variable, replacing the old value.
 
 For example:
 
-+---------------+---------------+--------------------------------+-------------+
-| Operand       | Initial x     | Sample Use                     | Result x    |
-+---------------+---------------+--------------------------------+-------------+
-| ``+=``        | 1             | ``x += 2``                     | 3           |
-+---------------+---------------+--------------------------------+-------------+
-| ``-=``        | 3             | ``x -= 2``                     | 1           |
-+---------------+---------------+--------------------------------+-------------+
-| ``*=``        | 1             | ``x *= 2``                     | 2           |
-+---------------+---------------+--------------------------------+-------------+
-| ``/=``        | 2             | ``x /= 2``                     | 1           |
-+---------------+---------------+--------------------------------+-------------+
-| ``%=``        | 1             | ``x %= 1``                     | 0           |
-+---------------+---------------+--------------------------------+-------------+
++-----------+------------+---------------+-----------+
+| Operand   | Initial x  | Sample Use    | Result x  |
++===========+============+===============+===========+
+| ``+=``    | 1          | ``x += 2``    | 3         |
++-----------+------------+---------------+-----------+
+| ``-=``    | 3          | ``x -= 2``    | 1         |
++-----------+------------+---------------+-----------+
+| ``*=``    | 1          | ``x *= 2``    | 2         |
++-----------+------------+---------------+-----------+
+| ``/=``    | 2          | ``x /= 2``    | 1         |
++-----------+------------+---------------+-----------+
+| ``%=``    | 1          | ``x %= 1``    | 0         |
++-----------+------------+---------------+-----------+
 
 ----------
 
 String Concatenation
-------------------------------------
+-----------------------------
 
-.. sidebar :: String concatenation
+.. sidebar:: String concatenation
 
-  In IRB, create a string variable called "formatted_x" 
-  that uses the value of the integer variable "x" in it::
+   In IRB, create a string variable called "formatted_x" that uses the value of 
+   the integer variable "x" in it::
 
-    formatted_x = "$" + x + ".00"
+     formatted_x = "$" + x + ".00"
 
-In addition to arithmetic, the ``+`` operator can also be used for string 
-concatenation.
-
-Note that the string portions to be concatenated are surrounded by quotes, and 
+Note that the string literals to be concatenated are surrounded by quotes, and 
 anything not surrounded by quotes represents a variable or method's *value*. 
 
-Also note that if you change the value of x, this *will not* update the value
-of formatted_x, since the *value* of x was inserted into formatted_x, not the 
-variable itself. If you wanted to auto-update formatted_x every time that x is
-changed, you would have to use a method... read on to find out how.
+Changing the value of x *will not* update the value of formatted_x, which is a 
+separate variable. A :command:`method` is required to auto-update formatted_x 
+every time that x is changed. Read on to find out how later.
+
+.. note:: The ``+`` operator is overloaded in Ruby to provide two operations: 
+   addition of numbers, and concatenation with strings.
 
 ----------
 
-Comparison
-------------------------------------
+Comparison Operators
+-----------------------------
 
-.. sidebar :: Comparisons with ``And`` and ``Or``
+.. sidebar:: Sample comparisons
 
-  Create some variables which describe a fast food order: ::
+  Create some variables describing a fast food order::
 
     sandwich = "cheeseburger"
     condiments = ["pickles", "mustard", "ketchup"]
     combo = true
     size = "medium"
     drink_upsize = true
+
+  Now place an order::
+
     order = {
       :sandwich => sandwich,
       :condiments => condiments,
@@ -266,60 +284,63 @@ Comparison
       :drink_upsize => drink_upsize
     }
 
-  Check whether this order is a combo with an upsized drink: ::
+  Does this order include a combo and an upsized drink?::
 
     combo && drink_upsize
 
-  This returns true, but if you set one of those variables equal to false, it 
-  does not: ::
+  Now change the variable values, then compare with **and**::
 
     drink_upsize = false
     combo && drink_upsize
 
-  Using ``Or`` with the same variables, however, returns true::
+  Now compare using **or**::
 
     combo || drink_upsize
 
+  Results: ``true``, ``false``, ``true``
 
-You may sometimes want to compare the value of a variable to something else.
-In Ruby, you can do this using the ``and``, ``or``, and ``is equal to`` 
-operators:
+Comparison operators compare two values, and return a boolean result of ``true`` 
+or ``false``. Ruby syntax for standard comparisons are listed following:
 
-+-------------------+---------------------+-----------------------------------+
-| Operation         | Operand             | Sample Syntax                     |
-+-------------------+---------------------+-----------------------------------+
-| And               | ``&&``              | ``x && y``                        |
-+-------------------+---------------------+-----------------------------------+
-| Or                | ``||``              | ``x || y``                        |
-+-------------------+---------------------+-----------------------------------+
-| Is Equal To       | ``==``              | ``x == y``                        |
-+-------------------+---------------------+-----------------------------------+
-
-Each of these comparisons returns a boolean ``true`` or ``false``.
++-------------------+----------+----------------+
+| Operation         | Operand  | Sample Syntax  |
++===================+==========+================+
+| Equal To          | ``==``   | ``x == y``     |
++-------------------+----------+----------------+
+| Not equal To      | ``!=``   | ``x != y``     |
++-------------------+----------+----------------+
+| Greater than      | ``>``    | ``x > y``      |
++-------------------+----------+----------------+
+| Less than         | ``<``    | ``x < y``      |
++-------------------+----------+----------------+
+| Equal or Greater  | ``>=``   | ``x >= y``     |
++-------------------+----------+----------------+
+| Equal or Lesser   | ``<=``   | ``x <= y``     |
++-------------------+----------+----------------+
+| Boolean ``and``   | ``&&``   | ``x && y``     |
++-------------------+----------+----------------+
+| Boolean ``or``    | ``||``   | ``x || y``     |
++-------------------+----------+----------------+
 
 |
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
 
-And and Or
+Is equal to
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-"And" and "Or" are used to compare two *boolean* values to each other. 
-
-The "And" comparison checks whether *both* of the given values are true, and if 
-not, it returns false.
-
-The "Or" comparison checks to see if *either one, or both*, of the given values 
-is true, and if not, returns false.
-
-|
-|
-|
-|
-|
-|
-|
-|
-|
-|
 
 .. sidebar :: Comparisons with ``Is equal to``
 
@@ -339,12 +360,13 @@ is true, and if not, returns false.
 
     sandwich == "burger"
 
-Is equal to
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The ``Is Equal To`` comparison can be used on two values of *any type* to 
 determine if they equal each other.
 
+.. warning :: Do not confuse ``==`` with ``=``!
+
+|
 |
 |
 |
@@ -358,7 +380,22 @@ determine if they equal each other.
 |
 |
 
-.. warning :: Do not confuse ``==`` with ``=``!
+.. note:: Ruby has additional comparison operators for particular programming 
+   uses:
+
+   +--------------------+------------+-------------------------+
+   | Operation          | Operand    | Result                  |
+   +====================+============+=========================+
+   | Math comparison    | ``<=>``    | | ``1`` if greater than |
+   |                    |            | | ``0`` if equal to     |
+   |                    |            | | ``-1`` if less than   |
+   +--------------------+------------+-------------------------+
+   | threequal method   | ``===``    | when clause equality    |
+   +--------------------+------------+-------------------------+
+   | ``.eql?`` method   | ``.eql?``  | equal type and values   |
+   +--------------------+------------+-------------------------+
+   | ``equal?`` method  | ``equal?`` | equal object ids        |
+   +--------------------+------------+-------------------------+
 
 ----------
 
