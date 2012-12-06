@@ -1,4 +1,4 @@
-.. _programming_basics:
+.. _ruby_programming:
 
 #############################
  Ruby Programming Concepts
