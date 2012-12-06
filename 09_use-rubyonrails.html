@@ -26,7 +26,7 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="Cloud Development 1.0 documentation" href="index.html" />
-    <link rel="next" title="Using Heroku" href="10_use-heroku.html" />
+    <link rel="next" title="Ruby Programming Concepts" href="10_programming.html" />
     <link rel="prev" title="Documentation Sample Project" href="08_use-sphinxdoc.html" /> 
   </head>
   <body>
@@ -34,7 +34,7 @@
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="10_use-heroku.html" title="Using Heroku"
+          <a href="10_programming.html" title="Ruby Programming Concepts"
              accesskey="N">next</a></li>
         <li class="right" >
           <a href="08_use-sphinxdoc.html" title="Documentation Sample Project"
@@ -44,12 +44,32 @@
     </div>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Ruby on Rails Sample App</a><ul>
+<li><a class="reference internal" href="#sample-rails-app">Sample Rails App</a><ul>
+<li><a class="reference internal" href="#get-a-sample-rails-app">Get a sample rails app</a></li>
+<li><a class="reference internal" href="#install-ruby">Install Ruby</a></li>
+<li><a class="reference internal" href="#install-gems">Install Gems</a></li>
+<li><a class="reference internal" href="#set-up-the-database">Set up the database</a></li>
+<li><a class="reference internal" href="#test-run-app-in-cloud9">Test run app in Cloud9</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#using-heroku">Using Heroku</a><ul>
+<li><a class="reference internal" href="#install-heroku-tools">Install Heroku Tools</a></li>
+<li><a class="reference internal" href="#add-heroku-server-to-project">Add Heroku Server to Project</a></li>
+</ul>
+</li>
+</ul>
+
   <h4>Previous topic</h4>
   <p class="topless"><a href="08_use-sphinxdoc.html"
                         title="previous chapter">Documentation Sample Project</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="10_use-heroku.html"
-                        title="next chapter">Using Heroku</a></p>
+  <p class="topless"><a href="10_programming.html"
+                        title="next chapter">Ruby Programming Concepts</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="_sources/09_use-rubyonrails.txt"
@@ -78,6 +98,125 @@
             
   <div class="section" id="ruby-on-rails-sample-app">
 <span id="use-rubyonrails"></span><h1>Ruby on Rails Sample App<a class="headerlink" href="#ruby-on-rails-sample-app" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="sample-rails-app">
+<h2>Sample Rails App<a class="headerlink" href="#sample-rails-app" title="Permalink to this headline">¶</a></h2>
+<p>Rails is the most popular framework for doing web applications with ruby.
+Many popular web applications such as Twitter, Hulu, and Github are written in
+Ruby on Rails. Running a simple RoR web app for development testing is
+relatively quick and easy in the Cloud9 environment.</p>
+<div class="section" id="get-a-sample-rails-app">
+<h3>Get a sample rails app<a class="headerlink" href="#get-a-sample-rails-app" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">First, fork a sample rails application on GitHub. Go to:</p>
+<p><a class="reference external" href="https://github.com/vstem-davenport/sample_app">https://github.com/vstem-davenport/sample_app</a></p>
+<p>...and click the <em class="guilabel">fork</em> button.</p>
+<p>GitHub will create a copy of the project on your account.</p>
+</li>
+<li><p class="first">Next, open your Cloud9 dashboard. Select menu item <em class="menuselection">Projects
+On Github ‣ Sample app</em> on the left sidebar.</p>
+</li>
+<li><p class="first">Then click button <em class="guilabel">Clone to Edit</em> to clone a copy of the project in
+your Cloud9 virtual workstation.</p>
+</li>
+<li><p class="first">Once the project is finished cloning to Cloud9, open the project workspace by
+clicking the <em class="guilabel">Start Editing</em> button.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="install-ruby">
+<h3>Install Ruby<a class="headerlink" href="#install-ruby" title="Permalink to this headline">¶</a></h3>
+<p>Ruby is installed using <strong class="program">RVM</strong>, the Ruby Version Manager. Cloud9
+provides a pre-installed emulation of RVM, which we will use.</p>
+<p>Open a terminal window in the rails sample app&#8217;s Cloud9 project workspace.
+In the Terminal window, run the following command to check that RVM is
+working, and also choose a ruby version to use in this project:</p>
+<div class="highlight-python"><pre>rvm use 1.9.3</pre>
+</div>
+</div>
+<div class="section" id="install-gems">
+<h3>Install Gems<a class="headerlink" href="#install-gems" title="Permalink to this headline">¶</a></h3>
+<p>Run the command <strong class="command">bundle install</strong> to install all ruby gems from the
+project in your Gemfile:</p>
+<div class="highlight-python"><pre>bundle install</pre>
+</div>
+</div>
+<div class="section" id="set-up-the-database">
+<h3>Set up the database<a class="headerlink" href="#set-up-the-database" title="Permalink to this headline">¶</a></h3>
+<p>Use the <strong class="command">rake</strong> (Ruby make) command to set up the development database
+structure:</p>
+<div class="highlight-python"><pre>rake db:migrate</pre>
+</div>
+</div>
+<div class="section" id="test-run-app-in-cloud9">
+<h3>Test run app in Cloud9<a class="headerlink" href="#test-run-app-in-cloud9" title="Permalink to this headline">¶</a></h3>
+<p>In the rails sample app&#8217;s Cloud9 Terminal window, run:</p>
+<div class="highlight-python"><pre>rails s -b $IP -p $PORT</pre>
+</div>
+<p>Your app will be running now, served locally for testing. View the running rails
+app at <a href="#id1"><span class="problematic" id="id2">`http://__project-name__.__username__.c9.io`_</span></a>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Use your own cloud9 username and project name in the URL to view your
+app.</p>
+</div>
+<hr class="docutils" />
+</div>
+</div>
+</div>
+<div class="section" id="using-heroku">
+<span id="use-heroku"></span><h1>Using Heroku<a class="headerlink" href="#using-heroku" title="Permalink to this headline">¶</a></h1>
+<p>When an application is ready for release, Heroku provides a public web
+application deployment service for free. Heroku integrates with the Cloud9
+development environment and GitHub repositories using Git commands. Following is
+a brief outline for configuring and deploying a project on Heroku.</p>
+<div class="section" id="install-heroku-tools">
+<h2>Install Heroku Tools<a class="headerlink" href="#install-heroku-tools" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Open a project in Cloud9</p>
+</li>
+<li><p class="first">In the Cloud9 Project, choose <em class="menuselection">View ‣ Console</em> from the menu</p>
+</li>
+<li><p class="first">At the console command line, type:</p>
+<div class="highlight-python"><pre>c9pm install heroku</pre>
+</div>
+</li>
+<li><p class="first">To make sure that your install was successful, and to get ready to use heroku,
+run the following command in your Terminal:</p>
+<div class="highlight-python"><pre>heroku login</pre>
+</div>
+<p>Enter your heroku username and password when prompted.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="add-heroku-server-to-project">
+<h2>Add Heroku Server to Project<a class="headerlink" href="#add-heroku-server-to-project" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">At the console command line, type:</p>
+<div class="highlight-python"><pre>heroku create</pre>
+</div>
+<p>This creates a heroku server for the app, and configures a remote location
+in git. Pushing the repository to the remote location will deploy the app.</p>
+</li>
+<li><p class="first">To see the new git heroku deployment branch, type:</p>
+<div class="highlight-python"><pre>git remote -v</pre>
+</div>
+</li>
+<li><p class="first">Open a new browser tab, and bookmark the url of your new heroku server, which
+is displayed in the output of the <strong class="command">heroku create</strong> command. The URL
+will look similar to this:</p>
+<div class="highlight-python"><pre>random-word-1234.herokuapp.com</pre>
+</div>
+</li>
+<li><p class="first">After making changes to the project in Cloud9 and pushing to the GitHub
+repository, deploy changes on Heroku with the additional command:</p>
+<div class="highlight-python"><pre>git push heroku master</pre>
+</div>
+</li>
+<li><p class="first">Now the live site can can be viewed across the Internet at the heroku server
+URL which you bookmarked earlier.</p>
+</li>
+</ul>
+</div>
 </div>
 
 
@@ -90,7 +229,7 @@
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="10_use-heroku.html" title="Using Heroku"
+          <a href="10_programming.html" title="Ruby Programming Concepts"
              >next</a></li>
         <li class="right" >
           <a href="08_use-sphinxdoc.html" title="Documentation Sample Project"

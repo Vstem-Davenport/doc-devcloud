@@ -17,8 +17,9 @@ Welcome to **Cloud Development** documentation!
 | Topic  6: :ref:`Creating a repository at GitHub <use_github>`.
 | Topic  7: :ref:`Using Cloud9 for web development <use_cloud9>`.
 | Topic  8: :ref:`Publishing Sphinxdocs on GitHub <use_sphinxdoc>`.
-| Topic  9: :ref:`A Ruby on Rails sample application <use_rubyonrails>`.
-| Topic 10: :ref:`Deploying a Rails App to Heroku <use_heroku>`.
+| Topic  9: :ref:`Ruby on Rails and Heroku <use_rubyonrails>`.
+
+| Topic 10: :ref:`Ruby Programming Language Basics <ruby_programming>`.
 
 ----------
 
