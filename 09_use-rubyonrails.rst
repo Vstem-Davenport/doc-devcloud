@@ -32,30 +32,20 @@ to clone a copy of the project to your Cloud9 virtual workstation.
 Once your project is finished cloning to Cloud9, open the project workspace by 
 clicking the :guilabel:`Start Editing` button.
 
-Install RVM
+Install Ruby
 -----------------------------
 
+Ruby is installed using RVM, the Ruby Version Manager. In Cloud9, RVM is already
+pre-installed, so all you have to do is use it.
+
 In your rails sample app's Cloud9 project workspace, open a Terminal window.
-Run::
-
-  curl -L https://get.rvm.io | bash -s stable
-
-Once that command finishes, you will need to close your terminal window, and 
-then open it back up, in order to reload the source of the rvm command in your 
-Cloud9 teminal. 
-
 In your new Terminal window, run the following command to check that RVM is 
 working, and also choose a ruby version to use in this project::
 
-  rvm install 1.9.3
+  rvm use 1.9.3
 
 Install Gems
 -----------------------------
-
-In your Cloud9 Terminal, run this command to create a name for the rvm gemset 
-that you'll be using for this project::
-
-  rvm use --create 1.9.3@rails_sample_app
 
 Run the bundle install command to install all of the gems in your Gemfile::
 

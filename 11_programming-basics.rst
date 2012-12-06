@@ -226,12 +226,15 @@ For example:
 String Concatenation
 ------------------------------------
 
-If you want to add some data on to a string, you can use the ``+`` for this.
+.. sidebar :: String concatenation
 
-For example, if you want to have a string variable called "formatted_x" 
-that uses the value of the integer variable "x" in it:
+  In IRB, create a string variable called "formatted_x" 
+  that uses the value of the integer variable "x" in it::
 
-    ``formatted_x = "$" + x + ".00"``
+    formatted_x = "$" + x + ".00"
+
+In addition to arithmetic, the ``+`` operator can also be used for string 
+concatenation.
 
 Note that the string portions to be concatenated are surrounded by quotes, and 
 anything not surrounded by quotes represents a variable or method's *value*. 
@@ -241,26 +244,14 @@ of formatted_x, since the *value* of x was inserted into formatted_x, not the
 variable itself. If you wanted to auto-update formatted_x every time that x is
 changed, you would have to use a method... read on to find out how.
 
+----------
+
 Comparison
 ------------------------------------
 
-You may sometimes want to compare the value of a variable to something else.
-In Ruby, you can do this using the and, or, and is equal to operators:
+.. sidebar :: Comparisons with ``And`` and ``Or``
 
-+-------------------+---------------------+-----------------------------------+
-| Operation         | Operand             | Sample Syntax                     |
-+-------------------+---------------------+-----------------------------------+
-| And               | ``&&``              | ``x && y``                        |
-+-------------------+---------------------+-----------------------------------+
-| Or                | ``||``              | ``x || y``                        |
-+-------------------+---------------------+-----------------------------------+
-| Is Equal To       | ``==``              | ``x == y``                        |
-+-------------------+---------------------+-----------------------------------+
-
-An example use of the "And"/"Or" comparisons:
-
-"And" and "Or" are used to compare two boolean variables to each other. Say that 
-you have these variables which describe a fast food order: ::
+  Create some variables which describe a fast food order: ::
 
     sandwich = "cheeseburger"
     condiments = ["pickles", "mustard", "ketchup"]
@@ -275,54 +266,108 @@ you have these variables which describe a fast food order: ::
       :drink_upsize => drink_upsize
     }
 
-... and you want to know whether this order is a combo with an upsized drink: ::
+  Check whether this order is a combo with an upsized drink: ::
 
     combo && drink_upsize
 
-This returns true, but if you set one of those variables equal to false, it does 
-not: ::
+  This returns true, but if you set one of those variables equal to false, it 
+  does not: ::
 
     drink_upsize = false
     combo && drink_upsize
 
-So you can see that the "And" comparison checks whether both of the given values
-are true, and if not, it returns false.
-
-The "Or" comparison checks to see if either one, or both, of the given values is
-true, and if not, returns false. So: ::
+  Using ``Or`` with the same variables, however, returns true::
 
     combo || drink_upsize
 
-Returns true.
 
-An example use of the "Is Equal to" comparison:
+You may sometimes want to compare the value of a variable to something else.
+In Ruby, you can do this using the ``and``, ``or``, and ``is equal to`` 
+operators:
 
-The "Is Equal To" comparison can be used on two values of *any type* to 
-determine if they equal each other. ::
++-------------------+---------------------+-----------------------------------+
+| Operation         | Operand             | Sample Syntax                     |
++-------------------+---------------------+-----------------------------------+
+| And               | ``&&``              | ``x && y``                        |
++-------------------+---------------------+-----------------------------------+
+| Or                | ``||``              | ``x || y``                        |
++-------------------+---------------------+-----------------------------------+
+| Is Equal To       | ``==``              | ``x == y``                        |
++-------------------+---------------------+-----------------------------------+
 
-  combo == true
-  --> true
+Each of these comparisons returns a boolean ``true`` or ``false``.
 
-  combo == drink_upsize 
-  --> false
+|
 
-  combo == "true"
-  --> false
+And and Or
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-  sandwich == "burger"
-  --> false
+"And" and "Or" are used to compare two *boolean* values to each other. 
 
-WARNING: Do not confuse ``==`` with ``=``!
+The "And" comparison checks whether *both* of the given values are true, and if 
+not, it returns false.
+
+The "Or" comparison checks to see if *either one, or both*, of the given values 
+is true, and if not, returns false.
+
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+
+.. sidebar :: Comparisons with ``Is equal to``
+
+  Compare a boolean variable's value to a boolean::
+
+    combo == true
+
+  Compare two boolean variables::
+  
+    combo == drink_upsize 
+  
+  Comparing a boolean to a string::
+
+    combo == "true"
+
+  Compare two strings::
+
+    sandwich == "burger"
+
+Is equal to
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The ``Is Equal To`` comparison can be used on two values of *any type* to 
+determine if they equal each other.
+
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+
+.. warning :: Do not confuse ``==`` with ``=``!
+
+----------
 
 Conditionals
 -----------------------------
 
-If...Else
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. sidebar :: If...Else
 
-Conditional statements are the simplest form of branching in coding. The first 
-condtional is the if...else. It's just used to say: if this codition is true, 
-do one thing, if it's not, do another thing. For example: ::
+  For example: ::
 
     if order[:sandwich] == "cheeseburger"
       puts "You ordered a cheeseburger"
@@ -333,8 +378,19 @@ do one thing, if it's not, do another thing. For example: ::
     else 
       puts "You didn't order a cheeseburger."
     end
+
+If...Else
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Conditional statements are the simplest form of branching in coding. The first 
+condtional is the ``if...else``. It's used to say: if this codition is true, 
+do one thing, if it's not, do another thing. 
+
+First, the interpreter checks to see if the conditional statement after the 
+``if`` is true. If it is, the code in the ``if`` section is run, and if it is 
+false, the interpreter moves on to the code in the ``else`` section.
    
-So the structure of the if...else is::
+The structure of the ``if...else`` statement is::
 
   if conditional statement
     code to run if conditional returns true
@@ -342,61 +398,179 @@ So the structure of the if...else is::
     code to run if conditional returns false
   end
 
-Notice you always need an "end" after any conditional statement, to let the
+Notice you always need an ``end`` after any conditional statement, to let the
 interpreter know where the code that belongs to your branch ends. If you don't
 have it, you will get an error.
+
+.. sidebar :: Elsif
+
+  Check if either a burger or cheeseburger was ordered::
+
+    if order[:sandwich] == "cheeseburger"
+      puts "You ordered a cheeseburger!"
+    elsif order[:sandwich] == "burger"
+      puts "You ordered a burger!"
+    end   
+
+  Add a branch for the case that something else was ordered::
+
+    if order[:sandwich] == "cheeseburger"
+      puts "You ordered a cheeseburger!"
+    elsif order[:sandwich] == "burger"
+      puts "You ordered a burger!"
+    else 
+      puts "You didn't order a burger at all."
+    end   
 
 If...Elsif
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Using ``elsif`` (short for "else if", and used only in Ruby) allows you to add 
-more than one conditional to the same statement as your if or if...else. 
-For example::
+more than one conditional to the same statement as your if or ``if...else``. 
 
-  if order[:sandwich] == "cheeseburger"
-    puts "You ordered a cheeseburger!"
-  elsif order[:sandwich] == "burger"
-    puts "You ordered a burger!"
-  end   
+The conditions are checked in order, and when a condition is met, the code in
+that branch is executed, then the block is exited, so no other conditions are 
+checked.
 
-  if order[:sandwich] == "cheeseburger"
-    puts "You ordered a cheeseburger!"
-  elsif order[:sandwich] == "burger"
-    puts "You ordered a burger!"
-  else 
-    puts "You didn't order a burger at all."
-  end   
+|
+|
+|
+|
+|
+|
+|
+|
+|
 
-Unless
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. sidebar :: Unless
 
-``Unless`` is just the opposite of ``if``. Use it when you want some code to run, 
-unless this one particular condition is met. For example::
+  Use ``unless`` with a comparison statement::
 
     unless order[:combo] == false
       puts "You get fries and a drink with that sammy!"
     end
 
+  Use ``unless`` with a boolean variable::
+
     unless order[:drink_upsize]
       puts "You get a" + order[:size] + " fries and drink with that sammy!"
     end
 
-Methods
-------------------------------------
+Unless
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+``Unless`` is just the opposite of ``if``. Use it when you want some code to run
+unless this one particular condition is met.
+
+
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+
+---------
+
+Methods
+-----------------------------
+
+Methods are used to run multiple lines of code at one time.
+
+Variables can be passed in to methods using parentheses. In the method 
+definition, you give the variable a name to be used within the method. Then, 
+when the method is called, any value passed in that place will be
+used as the value of the variable. If a method is defined to take variables in 
+Ruby, then you must pass values in to that method for those variables, or you 
+will get an argument error.
+
+Methods can be called on objects in Ruby using object notation: 
+``object.method``. 
+
+---------
 
 Nil and Blank
-------------------------------------
+-----------------------------
 
+Nil represents something that has not yet been given a value. When used in a 
+conditional, ``nil`` is interpreted like ``false``. However nil is not equal to 
+``false`` or ``0``. To check whether a variable has a value or not, use
+``object.nil?``.
 
-Blocks, Loops, Conditionals
-------------------------------------
+Blank represents nil or an empty string. The ``object.blank?`` method can be 
+used to check whether a variable is either an empty string or nil.
+
+---------
+
+Blocks & Loops
+-----------------------------
+
+Loops allow you to repeat a line or block of code.
+
+.. sidebar :: Do loop
+
+  Do something 3 times::
+  
+    3.times do 
+      x += 1
+      puts "x is " + x
+    end
+
+  Do something for each object in an array::
+
+    condiments.each do |condiment|
+      puts condiment
+    end
+
+Do Loop
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The ``do`` loop is used to repeat code a specified number of times.
+
+Do can be used in combinatio with the ``each`` method to iterate over an array 
+or collection of objects.
+
+While Loop
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The while loop repeats code as long as a given condition is true.
+
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+
+---------
 
 Get User input
 ------------------------------------
 
+Use ``gets`` to take user input from the console in Ruby.
+
+---------
+
 Coding Best-Practices: KISS, DRY
 ------------------------------------
+
+These acronyms are handy for remembering two important coding concepts:
+
+Keep It Simple Stupid
+
+and
+
+Don't Repeat Yourself
+
+---------
 
 Put it all together
 ------------------------------------
