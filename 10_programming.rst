@@ -615,3 +615,8 @@ Put it all together
 See if you can write a ruby script in a .rb file that will take an order when it
 is run.
 
+----------------
+
+.. rubric:: Footnotes
+
+#. `Wiki books guide to Ruby Programming <http://en.wikibooks.org/wiki/Ruby_Programming>`_
