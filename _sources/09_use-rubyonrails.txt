@@ -66,7 +66,7 @@ In the rails sample app's Cloud9 Terminal window, run::
   rails s -b $IP -p $PORT
 
 Your app will be running now, served locally for testing. View the running rails 
-app at `http://__project-name__.__username__.c9.io`_.
+app at :file:`http://__project-name__.__username__.c9.io`.
 
 .. note:: Use your own cloud9 username and project name in the URL to view your
    app.
@@ -124,6 +124,6 @@ Add Heroku Server to Project
 
     git push heroku master
 
-+ Now the live site can can be viewed across the Internet at the heroku server 
-  URL which you bookmarked earlier.
++ Now the live site can be viewed across the Internet at the heroku server URL
+  which you bookmarked earlier.
 
