@@ -51,6 +51,13 @@ Run the bundle install command to install all of the gems in your Gemfile::
 
   bundle install
 
+Set up the Database
+----------------------------
+
+Use the rake (Ruby make) command to set up your development database structure::
+
+  rake db:migrate
+
 Run the rails app in Cloud9
 -----------------------------
 
@@ -59,7 +66,7 @@ In your rails sample app's Cloud9 Terminal window, run::
   rails s -b $IP -p $PORT
 
 That's it! Your rails app will now be running. You can view your running rails 
-app at ``https://__project-name__.__username__.c9.io``.
+app at ``http://__project-name__.__username__.c9.io``.
 
 .. note:: Use your cloud9 own username and project name in the URL to view your
    app.
